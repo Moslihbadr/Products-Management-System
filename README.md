@@ -23,7 +23,7 @@ While the PMS does not rely on a back-end or database, it does use local storage
 This is a simple PMS designed for personal use, and is not currently open for contributions. However, feel free to fork the repository and modify the code to suit your needs.
 
 <h3>License</h3>
-This PMS is released under the MIT License. Feel free to modify and distribute the code as needed, but please include attribution to the original author.
+This PMS is released under the Moslihbadr License. Feel free to modify and distribute the code as needed, but please include attribution to the original author.
 
 <h3>Acknowledgements</h3>
 I hope this example README file helps you get started with your Products Management System! Feel free to modify it as needed to suit your specific project requirements.

@@ -1,0 +1,217 @@
+/* variables */
+:root {
+  --bgColor:#232123;
+  --inputColor1:#121113;
+  --inputColor2:#2a0766;
+  --textColor:#fbf9f8;
+  --borderRadius:20px;
+}
+/* reset the page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* login page */
+.container {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 10px;
+}
+.content {
+  margin: 0 auto;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content header {
+  margin-bottom: 30px;
+  padding-bottom: 40px;
+  overflow: hidden;
+  text-transform: capitalize;
+}
+.content header h1{
+  position: relative;
+  font-weight: 600;
+}
+.content header h1::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bgColor);
+  border-left: 2px solid var(--textColor);
+  animation: type 6s steps(43) infinite;
+}
+@keyframes type{
+  40% ,60%{
+    left: 100%;
+  }
+  100%{
+    left: 0%;
+  }  
+}
+section label {
+  text-transform: capitalize;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-weight: 600;
+}
+section input {
+  width:250px;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: var(--borderRadius);
+  caret-color: var(--bgColor);
+  border: none;
+  outline: none;
+  margin-bottom:25px ;
+}
+section button {
+  min-width: 100px;
+  height: 40px;
+  margin-right: 10px;
+  padding: 0 10px;
+  border-radius: var(--borderRadius);
+  border: none;
+  cursor: pointer;
+  background-color: var(--textColor);
+  color: var(--inputColor1);
+  font-size: 17px;
+  text-transform: capitalize;
+  transition: all .3s ease-in-out;
+}
+section button:hover{
+  background-color: #2a0766;
+  color: var(--textColor);
+  border: 1px solid var(--textColor);
+}
+a {
+  text-decoration: none;
+  color: var(--inputColor1);
+}
+a:hover {
+  color: var(--textColor);
+}
+.messageOne {
+  width: 300px;
+  height: 80px;
+  color: red;
+  display: none;
+}
+@media screen and (max-width:768px) {
+  header h1{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width:440px) {
+  header h1{
+    font-size: 17px;
+  }
+}
+@media screen and (max-width:375px) {
+  header h1{
+    font-size: 13px;
+  }
+}
+
+/* PMS page */
+.pageContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bgColor);
+  padding: 10px 100px;
+}
+.head{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+img {
+  background: #000;
+  width: 120px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.head span {
+  width: 42px;
+  height: 29px;
+  text-transform: uppercase;
+  margin-right: 30px;
+  margin-top: 13px;
+  background-color: var(--textColor);
+  color: var(--bgColor);
+  font-size: 23px;
+  font-weight: 600;
+  padding: 2px 3px;
+  border-radius: 10%;
+  cursor: default;
+}
+.description {
+  width: 100%;
+  color: var(--textColor);
+  text-align: center;
+  margin: 20px 0;
+}
+.description h1 {
+  text-transform: capitalize;
+  margin-bottom: 15px;
+  font-size: 35px;
+}
+.description p {
+  text-transform: capitalize;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+@media screen and (min-width:1200px) {
+  .pageContainer {
+    padding: 10px 100px;
+  }
+}
+@media screen and (min-width:992px) and (max-width:1200px)  {
+  .pageContainer {
+    padding: 10px 80px;
+  }
+}
+@media screen and (max-width:992px) and (min-width:768px)  {
+  .pageContainer {
+    padding: 10px 60px;
+  }
+}
+@media screen and (max-width:768px) {
+  .pageContainer {
+    padding: 10px 10px;
+  }
+  img {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100px;
+  }
+  .head span {
+    margin-right: 0;
+    margin-top: 5px;
+  }
+  .description h1{
+    font-size: 23px;
+  }
+  .description p{
+    font-size: 14px;
+  }
+}
+@media screen and (max-width:440px) {
+  .description h1{
+    font-size: 17px;
+  }
+  .description p{
+    font-size: 13px;
+  }
+}

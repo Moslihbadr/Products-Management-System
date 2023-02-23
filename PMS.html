@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="pageContainer">
+    <header>
+      <div class="head">
+        <div class="logo"><img src="./logo/PMSlogo1.png" alt="" srcset=""></div>
+        <span>bm</span>
+      </div>
+      <div class="description">
+        <h1>PMS:products management system</h1>
+        <p>Effortlessly manage your product inventory</p>
+      </div>
+    </header>
+    <div class="content">
+      <div class="inputs">
+        <input type="text" placeholder="Title">
+        <div class="price">
+          <input type="number" placeholder="Price">
+          <input type="number" placeholder="Taxes">
+          <input type="number" placeholder="Ads">
+          <input type="number" placeholder="discount">
+          <p>Total: <span></span></p>
+        </div>
+        <input type="number" placeholder="Count">
+        <input type="text" placeholder="Category">
+        <button>Create</button>
+        <input type="text" placeholder="Search">
+        <div class="search">
+          <button>Search By Title</button>
+          <button>Search By Category</button>
+        </div>
+        <button>Delete All</button>
+      </div>
+      <div class="dataTable"></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

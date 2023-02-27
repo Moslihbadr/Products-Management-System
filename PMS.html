@@ -9,28 +9,29 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="pageContainer">
-    <header>
-      <div class="head">
-        <div class="logo"><img src="./logo/PMSlogo1.png" alt="logo"></div>
-        <span title="Badr Moslih">bm</span>
-      </div>
-      <div class="description">
-        <h1>PMS:products management system</h1>
-        <p>Effortlessly manage your product inventory</p>
-      </div>
-    </header>
+  <div id="container">
+    <div class="pageContainer">
+      <header>
+        <div class="head">
+          <div class="logo"><img src="./logo/PMSlogo1.png" alt="logo"></div>
+          <span title="Badr Moslih">bm</span>
+        </div>
+        <div class="description">
+          <h1>PMS:products management system</h1>
+          <p>Effortlessly manage your product inventory</p>
+        </div>
+      </header>
     <div class="content">
       <div class="inputs">
         <input type="text" placeholder="Title">
         <div class="price">
-          <input type="number" placeholder="Price">
-          <input type="number" placeholder="Taxes">
-          <input type="number" placeholder="Ads">
-          <input type="number" placeholder="discount">
+          <input type="number" placeholder="Price" min="1">
+          <input type="number" placeholder="Taxes" min="1"><br>
+          <input type="number" placeholder="Ads" min="1">
+          <input type="number" placeholder="discount" class="discount" min="1">
           <p>Total: <span></span></p>
         </div>
-        <input type="number" placeholder="Count">
+        <input type="number" placeholder="Count" min="1">
         <input type="text" placeholder="Category">
         <button>Create</button>
         <input type="text" placeholder="Search">
@@ -40,9 +41,113 @@
         </div>
         <button>Delete All</button>
       </div>
-      <div class="dataTable"></div>
+      <div class="dataTable">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
     </div>
   </div>
+</div>
   <script src="app.js"></script>
 </body>
 </html>

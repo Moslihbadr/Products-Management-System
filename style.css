@@ -137,6 +137,9 @@ a:hover {
   width: 100%;
   padding: 10px 100px;
 }
+header {
+  margin-bottom: 50px;
+}
 .head{
   width: 100%;
   display: flex;
@@ -146,14 +149,12 @@ a:hover {
 img {
   background: #000;
   width: 120px;
-  margin-left: 30px;
   margin-top: 10px;
 }
 .head span {
   width: 42px;
   height: 29px;
   text-transform: uppercase;
-  margin-right: 30px;
   margin-top: 13px;
   background-color: var(--textColor);
   color: var(--bgColor);

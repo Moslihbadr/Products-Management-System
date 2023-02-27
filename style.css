@@ -152,7 +152,7 @@ img {
   margin-top: 10px;
 }
 .head span {
-  width: 42px;
+  /* width: 42px; */
   height: 29px;
   text-transform: uppercase;
   margin-top: 13px;
@@ -196,7 +196,7 @@ input {
 input::-webkit-inner-spin-button {
     -webkit-appearance: none; /* hide the input number bar */
 }
-br {
+.br {
   display: none;
 }
 .price {
@@ -277,7 +277,7 @@ button {
   {
     width: 49%;
   }
-  br {
+  .br {
     display: block;
   }
 }

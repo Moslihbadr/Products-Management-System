@@ -13,8 +13,8 @@
     <div class="pageContainer">
       <header>
         <div class="head">
-          <div class="logo"><img src="./logo/PMSlogo1.png" alt="logo"></div>
-          <span title="Badr Moslih">bm</span>
+          <div class="logo"><img src="./logo/PMSlogo.png" alt="logo"></div>
+          <span id="userName"></span>
         </div>
         <div class="description">
           <h1>PMS:products management system</h1>
@@ -23,23 +23,23 @@
       </header>
     <div class="content">
       <div class="inputs">
-        <input type="text" placeholder="Title">
+        <input type="text" placeholder="Title" id="title">
         <div class="price">
-          <input type="number" placeholder="Price" min="1">
-          <input type="number" placeholder="Taxes" min="1"><br>
-          <input type="number" placeholder="Ads" min="1">
+          <input type="number" placeholder="Price" min="1" id="price">
+          <input type="number" placeholder="Taxes" min="1" id="taxes"><br class="br">
+          <input type="number" placeholder="Ads" min="1" id="ads">
           <input type="number" placeholder="discount" class="discount" min="1">
-          <p>Total: <span></span></p>
+          <p>Total: <span id="total"></span></p>
         </div>
-        <input type="number" placeholder="Count" min="1">
-        <input type="text" placeholder="Category">
-        <button>Create</button>
-        <input type="text" placeholder="Search">
+        <input type="number" placeholder="Count" min="1" id="count">
+        <input type="text" placeholder="Category" id="category">
+        <button id="create">Create</button>
+        <input type="text" placeholder="Search" id="search">
         <div class="search">
-          <button>Search By Title</button>
-          <button>Search By Category</button>
+          <button id="searchByTitle">Search By Title</button>
+          <button id="searchByCat">Search By Category</button>
         </div>
-        <button>Delete All</button>
+        <button id="deleteAll">Delete All</button>
       </div>
       <div class="dataTable">
         <ul>

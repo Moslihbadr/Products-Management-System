@@ -13,6 +13,11 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+body {
+  background-color: var(--bgColor);
+  display: grid;
+  place-content: center;
+}
 /* login page */
 .container {
   background-color: var(--bgColor);
@@ -125,16 +130,18 @@ a:hover {
 }
 
 /* PMS page */
+#container {
+  max-width: 1300px;
+}
 .pageContainer {
   width: 100%;
-  min-height: 100vh;
-  background-color: var(--bgColor);
   padding: 10px 100px;
 }
 .head{
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 img {
   background: #000;
@@ -183,6 +190,11 @@ input {
   color: var(--bgColor);
   caret-color: var(--bgColor);
 }
+/* Chrome, Safari, Edge, Opera */
+.input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* hide the input number bar */
+}
 br {
   display: none;
 }
@@ -193,6 +205,7 @@ br {
   width: 18%;
 }
 .price p {
+  color: var(--textColor);
   display: inline;
 }
 button {
@@ -216,6 +229,7 @@ button {
 .search button {
   width: 48%;
 }
+
 @media screen and (min-width:1200px) {
   .pageContainer {
     padding: 10px 100px;

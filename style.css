@@ -127,7 +127,7 @@ a:hover {
 /* PMS page */
 .pageContainer {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--bgColor);
   padding: 10px 100px;
 }
@@ -172,6 +172,50 @@ img {
   margin-bottom: 15px;
   font-size: 15px;
 }
+input {
+  width: 100%;
+  height: 35px;
+  border-radius: var(--borderRadius);
+  padding: 0 15px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  color: var(--bgColor);
+  caret-color: var(--bgColor);
+}
+br {
+  display: none;
+}
+.price {
+  width: 100%;
+}
+.price input {
+  width: 18%;
+}
+.price p {
+  display: inline;
+}
+button {
+  width: 100%;
+    height: 35px;
+    margin-bottom: 15px;
+    border: 1px solid var(--textColor);
+    border-radius: var(--borderRadius);
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: var(--inputColor2);
+    color: var(--textColor);
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+.search button {
+  width: 48%;
+}
 @media screen and (min-width:1200px) {
   .pageContainer {
     padding: 10px 100px;
@@ -207,11 +251,34 @@ img {
     font-size: 14px;
   }
 }
+@media screen and (max-width:500px) {
+  .price input.discount,
+  .price input:nth-child(4)
+  {
+    width: 31%;
+  }
+  .price input:nth-child(1), 
+  .price input:nth-child(2)
+  {
+    width: 49%;
+  }
+  br {
+    display: block;
+  }
+}
 @media screen and (max-width:440px) {
   .description h1{
     font-size: 17px;
   }
   .description p{
     font-size: 13px;
+  }
+  .search button {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width:325px) {
+  .search button {
+    font-size: 11px;
   }
 }

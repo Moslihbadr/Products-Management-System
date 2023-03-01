@@ -43,5 +43,28 @@ window.addEventListener('load',()=>{
   let name = setName(fullName);
   userName.innerText = name ;
   userName.setAttribute("title",fullName);
-})
+});
 
+// total function
+function setTotal(){
+  if(price.value !== "" && taxes.value !== ""){
+    let totalPrice = parseFloat(price.value) + parseFloat(taxes.value)
+    total.innerText = totalPrice
+    if(ads.value !== ""){
+      totalPrice += parseFloat(ads.value)
+      total.innerText = totalPrice
+    }
+    if(discount.value !== ""){
+      totalPrice -= parseFloat(discount.value)
+      total.innerText = totalPrice
+    }
+  }
+}
+setInterval(() => {
+  setTotal()
+}, 100); // set total every 100 ms
+
+// create function
+create.addEventListener("click",()=>{
+  
+})

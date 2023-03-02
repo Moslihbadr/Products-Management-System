@@ -50,6 +50,7 @@ function setTotal(){
   if(price.value !== "" && taxes.value !== ""){
     let totalPrice = parseFloat(price.value) + parseFloat(taxes.value)
     total.innerText = totalPrice
+    document.querySelector(".price p").style.backgroundColor = "green"
     if(ads.value !== ""){
       totalPrice += parseFloat(ads.value)
       total.innerText = totalPrice
@@ -68,3 +69,4 @@ setInterval(() => {
 create.addEventListener("click",()=>{
   
 })
+

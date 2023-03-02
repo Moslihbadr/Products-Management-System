@@ -3,7 +3,6 @@
   --bgColor:#232123;
   --inputColor1:#121113;
   --inputColor2:#310044;
-  /* #51025f */
   --textColor:#fbf9f8;
   --borderRadius:20px;
 }
@@ -16,8 +15,6 @@
 }
 body {
   background-color: var(--bgColor);
-  display: grid;
-  place-content: center;
 }
 /* login page */
 .container {
@@ -121,7 +118,7 @@ a:hover {
 }
 @media screen and (max-width:440px) {
   header h1{
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 @media screen and (max-width:375px) {
@@ -148,12 +145,10 @@ header {
   margin-bottom: 30px;
 }
 img {
-  background: #000;
-  width: 120px;
-  margin-top: 10px;
+  width: 170px;
+  margin-top: 5px;
 }
 .head span {
-  /* width: 42px; */
   height: 29px;
   text-transform: uppercase;
   margin-top: 13px;
@@ -191,6 +186,12 @@ input {
   margin-bottom: 15px;
   color: var(--bgColor);
   caret-color: var(--bgColor);
+  transition: transform .4s;
+}
+input:focus {
+  transform: scale(1.1);
+  background-color: var(--inputColor1);
+  color: var(--textColor);
 }
 /* Chrome, Safari, Edge, Opera */
 .input::-webkit-outer-spin-button,
@@ -209,20 +210,28 @@ input::-webkit-inner-spin-button {
 .price p {
   color: var(--textColor);
   display: inline;
+  background-color: #d61c22 ;
+  padding: 6px 5px;
+  border-radius: 5px;
+  transition: all .3s;
 }
 button {
   width: 100%;
-    height: 35px;
-    margin-bottom: 15px;
-    border: 1px solid var(--textColor);
-    border-radius: var(--borderRadius);
-    outline: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    background-color: var(--inputColor2);
-    color: var(--textColor);
+  height: 35px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: var(--borderRadius);
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background-color: var(--inputColor2);
+  color: var(--textColor);
+  transition:ease .2s;
+}
+button:active {
+  background-color: #600060;
 }
 .search {
   display: flex;
@@ -231,6 +240,96 @@ button {
 .search button {
   width: 48%;
 }
+/* default style */
+.dataTable{
+  width: 100%;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* media query for smaller screens */
+@media screen and (max-width: 670px) {
+  table {
+    font-size: 14px;
+  }
+  
+  table th, table td {
+    padding: 5px;
+  }
+  
+  table td:nth-of-type(1):before { content: attr(data-label); }
+  table td:nth-of-type(2):before { content: attr(data-label); }
+  table td:nth-of-type(3):before { content: attr(data-label); }
+  table td:nth-of-type(4):before { content: attr(data-label); }
+  table td:nth-of-type(5):before { content: attr(data-label); }
+  table td:nth-of-type(6):before { content: attr(data-label); }
+  table td:nth-of-type(7):before { content: attr(data-label); }
+  table td:nth-of-type(8):before { content: attr(data-label); }
+  table td:nth-of-type(9):before { content: attr(data-label); }
+  table td:nth-of-type(10):before { content: attr(data-label); }
+  
+  table tbody tr {
+    display: block;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table tbody td {
+    display: block;
+    text-align: left;
+    margin-left: 10%;
+    border-bottom: none;
+    position: relative;
+    padding-left: 50%;
+    margin-bottom: 5px;
+    color: var(--textColor);
+  }
+  table tbody td:before {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-right: 10px;
+    font-weight: 900;
+    text-align: left;
+    color: var(--inputColor1);
+  }
+}
+
+
+/* .dataTable {
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+tr {
+  width: 100%;
+  text-align: center
+}
+.dataTable tr:first-child {
+  font-weight: 900 ;
+  text-transform: uppercase;
+}
+td {
+  color: var(--textColor);
+  padding: 10px;
+}
+td:last-child{
+  padding-right: 2px;
+}
+td:first-child{
+  padding-left: 2px;
+}  */
 
 @media screen and (min-width:1200px) {
   .pageContainer {
@@ -253,8 +352,7 @@ button {
   }
   img {
     margin-left: 0;
-    margin-top: 5px;
-    width: 100px;
+    margin-top: -5px;
   }
   .head span {
     margin-right: 0;
@@ -265,6 +363,12 @@ button {
   }
   .description p{
     font-size: 14px;
+  }
+  input {
+    transition: all 0.3s ease;
+  }
+  input:focus {
+    transform: scale(1);
   }
 }
 @media screen and (max-width:500px) {

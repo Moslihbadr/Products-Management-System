@@ -15,6 +15,8 @@
 }
 body {
   background-color: var(--bgColor);
+  display: grid;
+  place-content: center;
 }
 /* login page */
 .container {
@@ -152,6 +154,7 @@ img {
   height: 29px;
   text-transform: uppercase;
   margin-top: 13px;
+  margin-right: 10px;
   background-color: var(--textColor);
   color: var(--bgColor);
   font-size: 23px;
@@ -248,12 +251,24 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 16px;
+  color: var(--textColor);
+}
+tr:first-child {
+  color: #000;
+  text-transform: capitalize;
 }
 
 table td {
   padding: 10px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
+}
+@media screen and (min-width: 900px)  {
+  tr:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+}
 }
 
 /* media query for smaller screens */
@@ -262,8 +277,12 @@ table td {
     font-size: 14px;
   }
   
-  table th, table td {
+  table td {
     padding: 5px;
+  }
+
+  tr:first-child {
+    display: none;
   }
   
   table td:nth-of-type(1):before { content: attr(data-label); }
@@ -280,6 +299,8 @@ table td {
   table tbody tr {
     display: block;
     border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin: 0 auto;
   }
   
   table tbody td {
@@ -303,34 +324,6 @@ table td {
   }
 }
 
-
-/* .dataTable {
-  width: 100%;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-}
-tr {
-  width: 100%;
-  text-align: center
-}
-.dataTable tr:first-child {
-  font-weight: 900 ;
-  text-transform: uppercase;
-}
-td {
-  color: var(--textColor);
-  padding: 10px;
-}
-td:last-child{
-  padding-right: 2px;
-}
-td:first-child{
-  padding-left: 2px;
-}  */
-
 @media screen and (min-width:1200px) {
   .pageContainer {
     padding: 10px 100px;
@@ -351,6 +344,7 @@ td:first-child{
     padding: 10px 10px;
   }
   img {
+    width: 150px;
     margin-left: 0;
     margin-top: -5px;
   }

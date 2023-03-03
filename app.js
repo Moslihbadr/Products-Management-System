@@ -42,7 +42,8 @@ if (words.length > 1) {
 window.addEventListener('load',()=>{
   let name = setName(fullName);
   userName.innerText = name ;
-  userName.setAttribute("title",fullName);
+  let fname = fullName.toUpperCase()
+  userName.setAttribute("title",fname);
 });
 
 // total function
@@ -67,6 +68,41 @@ setInterval(() => {
 
 // create function
 create.addEventListener("click",()=>{
-  
+  let titleVal = title.value;
+  let priceVal = price.value;
+  let taxesVal = taxes.value;
+  let adsVal = ads.value;
+  let discountVal = discount.value;
+  let totalVal = total.innerText;
+  let countVal = count.value;
+  let categoryVal = category.value;
+  if(titleVal !== "" && totalVal !== "") {
+    let auto = 1
+    let table = document.getElementById("table");
+    let tr = document.createElement("tr")
+    let tdID = document.createElement("td");
+    tdID.setAttribute("data-label","ID");
+    let tdTitle = document.createElement("td");
+    tdTitle.setAttribute("data-label","TITLE");
+    let tdPrice = document.createElement("td");
+    tdPrice.setAttribute("data-label","PRICE");
+    let tdTaxes = document.createElement("td");
+    tdTaxes.setAttribute("data-label","TAXES");
+    let tdAds = document.createElement("td");
+    tdAds.setAttribute("data-label","ADS");
+    let tdDiscount = document.createElement("td");
+    tdDiscount.setAttribute("data-label","DISCOUNT");
+    let tdTolal = document.createElement("td");
+    tdTolal.setAttribute("data-label","TOTAL");
+    let tdCategory = document.createElement("td");
+    tdCategory.setAttribute("data-label","CATEGORY");
+    let tdUpdate = document.createElement("td");
+    tdUpdate.setAttribute("data-label","UPDATE");
+    let tdDelete = document.createElement("td");
+    tdDelete.setAttribute("data-label","DELETE");
+    tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
+    table.append(tr);
+    auto++
+  }
 })
 

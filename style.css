@@ -296,15 +296,16 @@ table td {
   table td:nth-of-type(9):before { content: attr(data-label); }
   table td:nth-of-type(10):before { content: attr(data-label); }
   
-  table tbody tr {
+  table tr {
     display: block;
     border-bottom: 1px solid #ddd;
     width: 90%;
     margin: 0 auto;
   }
   
-  table tbody td {
+  table td {
     display: block;
+    height: 20px;
     text-align: left;
     margin-left: 10%;
     border-bottom: none;
@@ -312,15 +313,35 @@ table td {
     padding-left: 50%;
     margin-bottom: 5px;
     color: var(--textColor);
+    background-color: aliceblue;
+    color: #000;
+    padding-top: 2px;
+    border-radius: 5px;
+    transform: translateX(-20px);
   }
-  table tbody td:before {
+  td:last-child {
+    margin-bottom: 10px;
+  }
+  td:first-child {
+    margin-top: 10px;
+  }
+  table td::before {
+    content: attr(data-label);
     position: absolute;
+    padding-left: 5px;
     left: 0;
     width: 50%;
-    padding-right: 10px;
+    padding-right: 10px; 
     font-weight: 900;
     text-align: left;
     color: var(--inputColor1);
+  }
+  td:nth-child(9),td:nth-child(10) {
+    background-color: var(--inputColor2);
+  }
+  td:nth-child(9)::before,td:nth-child(10)::before{
+    text-align: center;
+    width: 100%;
   }
 }
 

@@ -77,32 +77,41 @@ create.addEventListener("click",()=>{
   let countVal = count.value;
   let categoryVal = category.value;
   if(titleVal !== "" && totalVal !== "") {
-    let auto = 1
+    let auto = 1;
     let table = document.getElementById("table");
     let tr = document.createElement("tr")
     let tdID = document.createElement("td");
     tdID.setAttribute("data-label","ID");
+    tdID.innerText = auto;
     let tdTitle = document.createElement("td");
     tdTitle.setAttribute("data-label","TITLE");
+    tdTitle.innerText = titleVal;
     let tdPrice = document.createElement("td");
     tdPrice.setAttribute("data-label","PRICE");
+    tdPrice.innerText = priceVal;
     let tdTaxes = document.createElement("td");
     tdTaxes.setAttribute("data-label","TAXES");
+    tdTaxes.innerText = taxesVal;
     let tdAds = document.createElement("td");
     tdAds.setAttribute("data-label","ADS");
+    tdAds.innerText = adsVal;
     let tdDiscount = document.createElement("td");
     tdDiscount.setAttribute("data-label","DISCOUNT");
+    tdDiscount.innerText = discountVal;
     let tdTolal = document.createElement("td");
     tdTolal.setAttribute("data-label","TOTAL");
+    tdTolal.innerText = totalVal;
     let tdCategory = document.createElement("td");
     tdCategory.setAttribute("data-label","CATEGORY");
+    tdCategory.innerText = categoryVal;
     let tdUpdate = document.createElement("td");
     tdUpdate.setAttribute("data-label","UPDATE");
     let tdDelete = document.createElement("td");
     tdDelete.setAttribute("data-label","DELETE");
     tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
     table.append(tr);
-    auto++
+    auto++;
   }
+  
 })
 

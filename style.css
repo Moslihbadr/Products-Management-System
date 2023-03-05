@@ -340,6 +340,7 @@ table td {
     background-color: var(--inputColor2);
   }
   td:nth-child(9)::before,td:nth-child(10)::before{
+    color: #eee;
     text-align: center;
     width: 100%;
   }

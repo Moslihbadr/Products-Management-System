@@ -109,9 +109,16 @@ create.addEventListener("click",()=>{
     let tdDelete = document.createElement("td");
     tdDelete.setAttribute("data-label","DELETE");
     tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
-    table.append(tr);
     auto++;
+    if(countVal === "" || parseInt(countVal) === 1) {
+      table.append(tr);
+    }else if(countVal !== "" ){
+    for(let i=0; i<parseInt(countVal) ; i++) {
+      const clonedTr = tr.cloneNode(true);
+      // tdID.innerText = i+1
+      table.append(clonedTr);
+      }
+    }
   }
-  
 })
 

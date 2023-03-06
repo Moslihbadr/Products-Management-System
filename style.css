@@ -338,6 +338,14 @@ table td {
   }
   td:nth-child(9),td:nth-child(10) {
     background-color: var(--inputColor2);
+    padding: 5px 0;
+    height: 30px;
+    margin-top: 8px;
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+  }
+  td:nth-child(9) {
+    margin-top: 10px;
   }
   td:nth-child(9)::before,td:nth-child(10)::before{
     color: #eee;

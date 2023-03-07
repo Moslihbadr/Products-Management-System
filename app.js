@@ -77,12 +77,11 @@ create.addEventListener("click",()=>{
   let countVal = count.value;
   let categoryVal = category.value;
   if(titleVal !== "" && totalVal !== "") {
-    let auto = 1;
     let table = document.getElementById("table");
     let tr = document.createElement("tr")
     let tdID = document.createElement("td");
     tdID.setAttribute("data-label","ID");
-    tdID.innerText = auto;
+    tdID.innerText = IDGenerator();
     let tdTitle = document.createElement("td");
     tdTitle.setAttribute("data-label","TITLE");
     tdTitle.innerText = titleVal;
@@ -106,10 +105,17 @@ create.addEventListener("click",()=>{
     tdCategory.innerText = categoryVal;
     let tdUpdate = document.createElement("td");
     tdUpdate.setAttribute("data-label","UPDATE");
+    let updateBtn = document.createElement("button");
+    tdUpdate.append(updateBtn);
+    updateBtn.classList.add("btn");
+    updateBtn.innerText = "update"
     let tdDelete = document.createElement("td");
     tdDelete.setAttribute("data-label","DELETE");
+    let deleteBtn = document.createElement("button");
+    tdDelete.append(deleteBtn);
+    deleteBtn.classList.add("btn");
+    deleteBtn.innerText = "delete";
     tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
-    auto++;
     if(countVal === "" || parseInt(countVal) === 1) {
       table.append(tr);
     }else if(countVal !== "" ){
@@ -122,3 +128,19 @@ create.addEventListener("click",()=>{
   }
 })
 
+// create a function to generate the ID (that takes randomly 3chars and 3numbers and then concatenat them)
+// ID generator function
+function IDGenerator(){
+  let numberPart = Math.floor(Math.random() * 900) + 100; // return a random number between 100 and 999
+  let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let strPart = '';
+  for (let i = 0; i < 3; i++) {
+    strPart += letters.charAt(Math.floor(Math.random() * letters.length)); // return a random string of three letters
+  }
+  let ID = strPart + numberPart;  // there are 3,814,040,000,000 potential combinations
+  if( !(listID.includes(ID)) ){
+    listID.push(ID);
+    return ID
+  }
+}
+let listID = [];

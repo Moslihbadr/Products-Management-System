@@ -1,3 +1,4 @@
+//variables
 const fullName = localStorage.getItem("full_name");
 let password = localStorage.getItem("password");
 let userName = document.getElementById("userName");
@@ -67,68 +68,87 @@ setInterval(() => {
 }, 100); // set total every 100 ms
 
 // create function
+let productsList;
+if (localStorage.product != null) {
+  productsList = JSON.parse(localStorage.products);
+}else{
+  productsList = [];
+}
+
 create.addEventListener("click",()=>{
-  let titleVal = title.value;
-  let priceVal = price.value;
-  let taxesVal = taxes.value;
-  let adsVal = ads.value;
-  let discountVal = discount.value;
-  let totalVal = total.innerText;
-  let countVal = count.value;
-  let categoryVal = category.value;
-  if(titleVal !== "" && totalVal !== "") {
-    let table = document.getElementById("table");
-    let tr = document.createElement("tr")
-    let tdID = document.createElement("td");
-    tdID.setAttribute("data-label","ID");
-    tdID.innerText = IDGenerator();
-    let tdTitle = document.createElement("td");
-    tdTitle.setAttribute("data-label","TITLE");
-    tdTitle.innerText = titleVal;
-    let tdPrice = document.createElement("td");
-    tdPrice.setAttribute("data-label","PRICE");
-    tdPrice.innerText = priceVal;
-    let tdTaxes = document.createElement("td");
-    tdTaxes.setAttribute("data-label","TAXES");
-    tdTaxes.innerText = taxesVal;
-    let tdAds = document.createElement("td");
-    tdAds.setAttribute("data-label","ADS");
-    tdAds.innerText = adsVal;
-    let tdDiscount = document.createElement("td");
-    tdDiscount.setAttribute("data-label","DISCOUNT");
-    tdDiscount.innerText = discountVal;
-    let tdTolal = document.createElement("td");
-    tdTolal.setAttribute("data-label","TOTAL");
-    tdTolal.innerText = totalVal;
-    let tdCategory = document.createElement("td");
-    tdCategory.setAttribute("data-label","CATEGORY");
-    tdCategory.innerText = categoryVal;
-    let tdUpdate = document.createElement("td");
-    tdUpdate.setAttribute("data-label","UPDATE");
-    let updateBtn = document.createElement("button");
-    tdUpdate.append(updateBtn);
-    updateBtn.classList.add("btn");
-    updateBtn.innerText = "update"
-    let tdDelete = document.createElement("td");
-    tdDelete.setAttribute("data-label","DELETE");
-    let deleteBtn = document.createElement("button");
-    tdDelete.append(deleteBtn);
-    deleteBtn.classList.add("btn");
-    deleteBtn.innerText = "delete";
-    tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
-    if(countVal === "" || parseInt(countVal) === 1) {
-      table.append(tr);
-    }else if(countVal !== "" ){
-    for(let i=0; i<parseInt(countVal) ; i++) {
-      const clonedTr = tr.cloneNode(true);
-      // tdID.innerText = i+1
-      table.append(clonedTr);
-      }
-    }
+  if (title.value !== "" && total.innerText !== "") {
+    let product = {
+      Title:title.value,
+      Price:price.value,
+      Taxes:taxes.value,
+      Ads:ads.value,
+      Discount:discount.value,
+      Total:total.innerText,
+      Count:count.value,
+      Category:category.value
+    };
+    productsList.push(product);
+    localStorage.setItem("products",JSON.stringify(productsList));
   }
+  // let titleVal = title.value;
+  // let priceVal = price.value;
+  // let taxesVal = taxes.value;
+  // let adsVal = ads.value;
+  // let discountVal = discount.value;
+  // let totalVal = total.innerText;
+  // let countVal = count.value;
+  // let categoryVal = category.value;
+  // if(titleVal !== "" && totalVal !== "") {
+  //   let table = document.getElementById("table");
+  //   let tr = document.createElement("tr")
+  //   let tdID = document.createElement("td");
+  //   tdID.setAttribute("data-label","ID");
+  //   tdID.innerText = IDGenerator();
+  //   let tdTitle = document.createElement("td");
+  //   tdTitle.setAttribute("data-label","TITLE");
+  //   tdTitle.innerText = titleVal;
+  //   let tdPrice = document.createElement("td");
+  //   tdPrice.setAttribute("data-label","PRICE");
+  //   tdPrice.innerText = priceVal;
+  //   let tdTaxes = document.createElement("td");
+  //   tdTaxes.setAttribute("data-label","TAXES");
+  //   tdTaxes.innerText = taxesVal;
+  //   let tdAds = document.createElement("td");
+  //   tdAds.setAttribute("data-label","ADS");
+  //   tdAds.innerText = adsVal;
+  //   let tdDiscount = document.createElement("td");
+  //   tdDiscount.setAttribute("data-label","DISCOUNT");
+  //   tdDiscount.innerText = discountVal;
+  //   let tdTolal = document.createElement("td");
+  //   tdTolal.setAttribute("data-label","TOTAL");
+  //   tdTolal.innerText = totalVal;
+  //   let tdCategory = document.createElement("td");
+  //   tdCategory.setAttribute("data-label","CATEGORY");
+  //   tdCategory.innerText = categoryVal;
+  //   let tdUpdate = document.createElement("td");
+  //   tdUpdate.setAttribute("data-label","UPDATE");
+  //   let updateBtn = document.createElement("button");
+  //   tdUpdate.append(updateBtn);
+  //   updateBtn.classList.add("btn");
+  //   updateBtn.innerText = "update"
+  //   let tdDelete = document.createElement("td");
+  //   tdDelete.setAttribute("data-label","DELETE");
+  //   let deleteBtn = document.createElement("button");
+  //   tdDelete.append(deleteBtn);
+  //   deleteBtn.classList.add("btn");
+  //   deleteBtn.innerText = "delete";
+  //   tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
+  //   if(countVal === "" || parseInt(countVal) === 1) {
+  //     table.append(tr);
+  //   }else if(countVal !== "" ){
+  //   for(let i=0; i<parseInt(countVal) ; i++) {
+  //     const clonedTr = tr.cloneNode(true);
+  //     table.append(clonedTr);
+  //     }
+  //   }
+  // }
 })
 
-// create a function to generate the ID (that takes randomly 3chars and 3numbers and then concatenat them)
 // ID generator function
 function IDGenerator(){
   let numberPart = Math.floor(Math.random() * 900) + 100; // return a random number between 100 and 999

@@ -235,6 +235,8 @@ button {
 }
 .btn {
   margin-bottom: 0;
+  padding: 0px 5px;
+  font-size: 13px;
 }
 button:active {
   background-color: #600060;

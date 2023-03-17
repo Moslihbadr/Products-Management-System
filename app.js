@@ -79,6 +79,7 @@ if (localStorage.products != null) {
 function create() {
   if (title.value !== "" && total.innerText !== "") {
     let product = {
+      ID:IDGenerator(),
       Title:title.value,
       Price:price.value,
       Taxes:taxes.value,
@@ -107,6 +108,13 @@ function clear() {
   title.focus();
 }
 
+// total products
+function setTotalPro() {
+  let totalpro = document.querySelector('#totalPro')
+  totalpro.innerText = productsList.length
+}
+setTotalPro()
+
 // displaying the product on the table
 function display() {
   let tbody = document.querySelector("table tbody");
@@ -114,7 +122,7 @@ function display() {
   for (let i = 0; i < productsList.length; i++) {
     row += `
     <tr>
-      <td data-label="ID">${{i}}</td>
+      <td data-label="ID">${productsList[i].ID}</td>
       <td data-label="TITLE">${productsList[i].Title}</td> 
       <td data-label="PRICE">${productsList[i].Price}</td>
       <td data-label="TAXES">${productsList[i].Taxes}</td>
@@ -122,19 +130,21 @@ function display() {
       <td data-label="DISCOUNT">${productsList[i].Discount}</td>
       <td data-label="TOTAL">${productsList[i].Total}</td>
       <td data-label="CATEGORY">${productsList[i].Category}</td>
-      <td data-label="UPDATE">update</td>
-      <td data-label="DELETE">delete</td>
+      <td data-label="UPDATE"><button class="btn">update</button></td>
+      <td onclick = "deletePro(${i})" data-label="DELETE"><button class="btn">delete</button></td>
     </tr>
     `
     tbody.innerHTML = row;
   }
 }
+display()
 
 // click event of the create button
 createBtn.addEventListener("click",()=>{
   create();
   clear();
-  display()
+  display();
+  setTotalPro();
 })
 
 
@@ -154,3 +164,12 @@ function IDGenerator(){
   }
 }
 let listID = [];
+
+// delete product
+function deletePro(i) {
+  productsList.splice(i,1);
+  display();
+  localStorage.setItem("products",JSON.stringify(productsList));
+  setTotalPro();
+}
+

@@ -246,7 +246,7 @@ button:active {
 .search button {
   width: 48%;
 }
-/* default style */
+/* table style */
 .dataTable{
   width: 100%;
 }
@@ -256,7 +256,7 @@ table {
   font-size: 16px;
   color: var(--textColor);
 }
-tr:first-child {
+thead tr {
   color: #000;
   text-transform: capitalize;
 }
@@ -267,7 +267,7 @@ table td {
   border-bottom: 1px solid #ddd;
 }
 @media screen and (min-width: 900px)  {
-  tr:first-child {
+  thead tr {
   font-weight: bold;
   text-transform: uppercase;
   color: #000;
@@ -284,10 +284,10 @@ table td {
     padding: 5px;
   }
 
-  tr:first-child {
+  table thead tr{
     display: none;
   }
-  
+
   table td:nth-of-type(1):before { content: attr(data-label); }
   table td:nth-of-type(2):before { content: attr(data-label); }
   table td:nth-of-type(3):before { content: attr(data-label); }

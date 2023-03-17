@@ -13,7 +13,7 @@ let count = document.getElementById("count");
 let category = document.getElementById("category");
 let search = document.getElementById("search");
 // buttons
-let create = document.getElementById("create");
+let createBtn = document.getElementById("create");
 let searchByTitle = document.getElementById("searchByTitle");
 let searchByCat = document.getElementById("searchByCat");
 let deleteAll = document.getElementById("deleteAll");
@@ -61,6 +61,8 @@ function setTotal(){
       totalPrice -= parseFloat(discount.value)
       total.innerText = totalPrice
     }
+  }else {
+    document.querySelector(".price p").style.backgroundColor = "#d61c22"
   }
 }
 setInterval(() => {
@@ -69,13 +71,12 @@ setInterval(() => {
 
 // create function
 let productsList;
-if (localStorage.product != null) {
+if (localStorage.products != null) {
   productsList = JSON.parse(localStorage.products);
 }else{
   productsList = [];
 }
-
-create.addEventListener("click",()=>{
+function create() {
   if (title.value !== "" && total.innerText !== "") {
     let product = {
       Title:title.value,
@@ -88,66 +89,55 @@ create.addEventListener("click",()=>{
       Category:category.value
     };
     productsList.push(product);
+    //saving the products info to the local storage
     localStorage.setItem("products",JSON.stringify(productsList));
   }
-  // let titleVal = title.value;
-  // let priceVal = price.value;
-  // let taxesVal = taxes.value;
-  // let adsVal = ads.value;
-  // let discountVal = discount.value;
-  // let totalVal = total.innerText;
-  // let countVal = count.value;
-  // let categoryVal = category.value;
-  // if(titleVal !== "" && totalVal !== "") {
-  //   let table = document.getElementById("table");
-  //   let tr = document.createElement("tr")
-  //   let tdID = document.createElement("td");
-  //   tdID.setAttribute("data-label","ID");
-  //   tdID.innerText = IDGenerator();
-  //   let tdTitle = document.createElement("td");
-  //   tdTitle.setAttribute("data-label","TITLE");
-  //   tdTitle.innerText = titleVal;
-  //   let tdPrice = document.createElement("td");
-  //   tdPrice.setAttribute("data-label","PRICE");
-  //   tdPrice.innerText = priceVal;
-  //   let tdTaxes = document.createElement("td");
-  //   tdTaxes.setAttribute("data-label","TAXES");
-  //   tdTaxes.innerText = taxesVal;
-  //   let tdAds = document.createElement("td");
-  //   tdAds.setAttribute("data-label","ADS");
-  //   tdAds.innerText = adsVal;
-  //   let tdDiscount = document.createElement("td");
-  //   tdDiscount.setAttribute("data-label","DISCOUNT");
-  //   tdDiscount.innerText = discountVal;
-  //   let tdTolal = document.createElement("td");
-  //   tdTolal.setAttribute("data-label","TOTAL");
-  //   tdTolal.innerText = totalVal;
-  //   let tdCategory = document.createElement("td");
-  //   tdCategory.setAttribute("data-label","CATEGORY");
-  //   tdCategory.innerText = categoryVal;
-  //   let tdUpdate = document.createElement("td");
-  //   tdUpdate.setAttribute("data-label","UPDATE");
-  //   let updateBtn = document.createElement("button");
-  //   tdUpdate.append(updateBtn);
-  //   updateBtn.classList.add("btn");
-  //   updateBtn.innerText = "update"
-  //   let tdDelete = document.createElement("td");
-  //   tdDelete.setAttribute("data-label","DELETE");
-  //   let deleteBtn = document.createElement("button");
-  //   tdDelete.append(deleteBtn);
-  //   deleteBtn.classList.add("btn");
-  //   deleteBtn.innerText = "delete";
-  //   tr.append(tdID,tdTitle,tdPrice,tdTaxes,tdAds,tdDiscount,tdTolal,tdCategory,tdUpdate,tdDelete);
-  //   if(countVal === "" || parseInt(countVal) === 1) {
-  //     table.append(tr);
-  //   }else if(countVal !== "" ){
-  //   for(let i=0; i<parseInt(countVal) ; i++) {
-  //     const clonedTr = tr.cloneNode(true);
-  //     table.append(clonedTr);
-  //     }
-  //   }
-  // }
+}
+
+// clear all inputs
+function clear() {
+  title.value = "";
+  price.value = "";
+  taxes.value = "";
+  ads.value = "";
+  discount.value = "";
+  total.innerText = "";
+  count.value = "";
+  category.value = "";
+  title.focus();
+}
+
+// displaying the product on the table
+function display() {
+  let tbody = document.querySelector("table tbody");
+  let row = "";
+  for (let i = 0; i < productsList.length; i++) {
+    row += `
+    <tr>
+      <td data-label="ID">${{i}}</td>
+      <td data-label="TITLE">${productsList[i].Title}</td> 
+      <td data-label="PRICE">${productsList[i].Price}</td>
+      <td data-label="TAXES">${productsList[i].Taxes}</td>
+      <td data-label="ADS">${productsList[i].Ads}</td>
+      <td data-label="DISCOUNT">${productsList[i].Discount}</td>
+      <td data-label="TOTAL">${productsList[i].Total}</td>
+      <td data-label="CATEGORY">${productsList[i].Category}</td>
+      <td data-label="UPDATE">update</td>
+      <td data-label="DELETE">delete</td>
+    </tr>
+    `
+    tbody.innerHTML = row;
+  }
+}
+
+// click event of the create button
+createBtn.addEventListener("click",()=>{
+  create();
+  clear();
+  display()
 })
+
+
 
 // ID generator function
 function IDGenerator(){

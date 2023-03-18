@@ -17,6 +17,8 @@ body {
   background-color: var(--bgColor);
   display: grid;
   place-content: center;
+  position: relative;
+  overflow: hidden;
 }
 /* login page */
 .container {
@@ -264,9 +266,10 @@ thead tr {
 }
 
 table td {
-  padding: 10px;
+  padding: 6px 8px;
   text-align: center;
   border-bottom: 1px solid #ddd;
+  font-weight: bold;
 }
 @media screen and (min-width: 900px)  {
   thead tr {

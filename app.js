@@ -134,8 +134,8 @@ function display() {
       <td onclick = "deletePro(${i})" data-label="DELETE"><button class="btn">delete</button></td>
     </tr>
     `
-    tbody.innerHTML = row;
   }
+  tbody.innerHTML = row;
 }
 display()
 
@@ -143,8 +143,8 @@ display()
 createBtn.addEventListener("click",()=>{
   create();
   clear();
-  display();
-  setTotalPro();
+  display();  // update the table
+  setTotalPro();  // update the total
 })
 
 
@@ -169,6 +169,17 @@ let listID = [];
 function deletePro(i) {
   productsList.splice(i,1);
   localStorage.setItem("products",JSON.stringify(productsList));
-  display();
-  setTotalPro();
+  display();  // update the table
+  setTotalPro();    // update the total
 }
+
+// function to delete all products
+function deleteAllPro() {
+  productsList.splice(0, productsList.length);  // remove all products from the productsList array
+  localStorage.removeItem("products");  // remove the 'products' key from local storage
+  display();  // update the table
+  setTotalPro();  // update the total 
+}
+
+// add a click event listener to the 'deleteAll' button
+deleteAll.addEventListener('click', deleteAllPro);

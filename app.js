@@ -111,7 +111,7 @@ function clear() {
 // total products
 function setTotalPro() {
   let totalpro = document.querySelector('#totalPro')
-  totalpro.innerText = productsList.length
+  totalpro.innerText = productsList.length;
 }
 setTotalPro()
 
@@ -168,8 +168,7 @@ let listID = [];
 // delete product
 function deletePro(i) {
   productsList.splice(i,1);
-  display();
   localStorage.setItem("products",JSON.stringify(productsList));
+  display();
   setTotalPro();
 }
-

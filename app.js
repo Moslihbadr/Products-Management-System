@@ -145,6 +145,7 @@ createBtn.addEventListener("click",()=>{
   clear();
   display();  // update the table
   setTotalPro();  // update the total
+  showDeleteAll()
 })
 
 
@@ -171,6 +172,7 @@ function deletePro(i) {
   localStorage.setItem("products",JSON.stringify(productsList));
   display();  // update the table
   setTotalPro();    // update the total
+  showDeleteAll()
 }
 
 // function to delete all products
@@ -179,7 +181,18 @@ function deleteAllPro() {
   localStorage.removeItem("products");  // remove the 'products' key from local storage
   display();  // update the table
   setTotalPro();  // update the total 
+  showDeleteAll()
 }
 
 // add a click event listener to the 'deleteAll' button
 deleteAll.addEventListener('click', deleteAllPro);
+
+// function to display the 'deleteAll' button
+function showDeleteAll() {
+  if (productsList.length > 0) {
+    deleteAll.style.display = "block"
+  }else {
+    deleteAll.style.display = "none"
+  }
+}
+showDeleteAll()

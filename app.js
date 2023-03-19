@@ -89,8 +89,15 @@ function create() {
       Count:count.value,
       Category:category.value
     };
-    productsList.push(product);
-    //saving the products info to the local storage
+    // count
+    if (product.Count > 1) {
+      for (let i = 0; i < product.Count; i++) {
+        productsList.push(product);
+      }
+    } else if(product.Count == null || product.Count <= 1){
+      productsList.push(product);
+    }
+    // saving the products info in local storage
     localStorage.setItem("products",JSON.stringify(productsList));
   }
 }
@@ -117,7 +124,6 @@ setTotalPro()
 
 // displaying the product on the table
 function display() {
-  let tbody = document.querySelector("table tbody");
   let row = "";
   for (let i = 0; i < productsList.length; i++) {
     row += `
@@ -130,12 +136,12 @@ function display() {
       <td data-label="DISCOUNT">${productsList[i].Discount}</td>
       <td data-label="TOTAL">${productsList[i].Total}</td>
       <td data-label="CATEGORY">${productsList[i].Category}</td>
-      <td data-label="UPDATE"><button class="btn">update</button></td>
+      <td onclick = "update(${i})" data-label="UPDATE"><button class="btn">update</button></td>
       <td onclick = "deletePro(${i})" data-label="DELETE"><button class="btn">delete</button></td>
     </tr>
     `
   }
-  tbody.innerHTML = row;
+  document.querySelector("table tbody").innerHTML = row;
 }
 display()
 
@@ -146,6 +152,7 @@ createBtn.addEventListener("click",()=>{
   display();  // update the table
   setTotalPro();  // update the total
   showDeleteAll()
+  createBtn.innerText = "create"
 })
 
 
@@ -169,7 +176,7 @@ let listID = [];
 // delete product
 function deletePro(i) {
   productsList.splice(i,1);
-  localStorage.setItem("products",JSON.stringify(productsList));
+  // localStorage.setItem("products",JSON.stringify(productsList));
   display();  // update the table
   setTotalPro();    // update the total
   showDeleteAll()
@@ -177,7 +184,7 @@ function deletePro(i) {
 
 // function to delete all products
 function deleteAllPro() {
-  productsList.splice(0, productsList.length);  // remove all products from the productsList array
+  productsList.splice(0);  // remove all products from the productsList array
   localStorage.removeItem("products");  // remove the 'products' key from local storage
   display();  // update the table
   setTotalPro();  // update the total 
@@ -196,3 +203,26 @@ function showDeleteAll() {
   }
 }
 showDeleteAll()
+
+// update function
+function update(i) {
+  title.value = productsList[i].Title;
+  price.value = productsList[i].Price;
+  taxes.value = productsList[i].Taxes;
+  ads.value = productsList[i].Ads;
+  discount.value = productsList[i].Discount;
+  total.innerText = productsList[i].Total;
+  count.value = productsList[i].Count;
+  category.value = productsList[i].Category;
+  createBtn.innerText = "update";
+  title.focus();
+  // checks if the ID of each product in productsList is not equal to the ID of the clicked product
+  productsList = productsList.filter(product => {
+    return product.ID !== productsList[i].ID;  
+  });
+  display();
+  setTotalPro();
+  localStorage.setItem("products",JSON.stringify(productsList));   
+}
+
+// serch function

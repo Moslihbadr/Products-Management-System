@@ -220,7 +220,6 @@ function update(i) {
   productsList = productsList.filter(product => {
     return product.ID !== productsList[i].ID;  
   });
-  count.style.display = "none"
   display();
   setTotalPro();
   localStorage.setItem("products",JSON.stringify(productsList));   

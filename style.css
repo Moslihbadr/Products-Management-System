@@ -243,13 +243,32 @@ button {
 button:active {
   background-color: #600060;
 }
-.search {
+/* .search {
   display: flex;
   justify-content: space-between;
 }
 .search button {
-  width: 48%;
+  width: 33%;
+} */
+select {
+  width: 100%;
+  /* max-width: 300px; */
+  height: 35px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
 }
+  /* @media screen and (max-width:581px) {
+  .search {
+    flex-direction: column;
+  }
+  .search button {
+    width: 100%;
+  }
+} */
 /* table style */
 .dataTable{
   width: 100%;

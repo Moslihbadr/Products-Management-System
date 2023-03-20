@@ -14,8 +14,6 @@ let category = document.getElementById("category");
 let search = document.getElementById("search");
 // buttons
 let createBtn = document.getElementById("create");
-let searchByTitle = document.getElementById("searchByTitle");
-let searchByCat = document.getElementById("searchByCat");
 let deleteAll = document.getElementById("deleteAll");
 
 
@@ -152,6 +150,7 @@ createBtn.addEventListener("click",()=>{
   display();  // update the table
   setTotalPro();  // update the total
   showDeleteAll()
+  showSearch()
   createBtn.innerText = "create"
 })
 
@@ -180,6 +179,7 @@ function deletePro(i) {
   display();  // update the table
   setTotalPro();    // update the total
   showDeleteAll()
+  showSearch()
 }
 
 // function to delete all products
@@ -189,6 +189,7 @@ function deleteAllPro() {
   display();  // update the table
   setTotalPro();  // update the total 
   showDeleteAll()
+  showSearch()
 }
 
 // add a click event listener to the 'deleteAll' button
@@ -226,3 +227,35 @@ function update(i) {
 }
 
 // serch function
+function searchPro() {
+  let searchMode = document.getElementById('searchBy').value;
+  if (searchMode === "ID") {
+    productsList = productsList.filter(product => product.ID.toUpperCase() === search.value.toUpperCase());
+  }
+  else if(searchMode === "Title") {
+    productsList = productsList.filter(product => product.Title.toUpperCase() === search.value.toUpperCase());
+  }else if(searchMode === "Category") {
+    productsList = productsList.filter(product => product.Category.toUpperCase() === search.value.toUpperCase());
+  }
+  display();
+}
+
+// enter event for search input
+search.addEventListener("keydown", (event) => {
+  // check if the "Enter" key was pressed
+  if (event.key === "Enter") {
+    searchPro()
+  }
+});
+
+// function to display the 'search' div
+function showSearch() {
+  if (productsList.length > 0) {
+    document.querySelector(".search").style.display = "flex"
+    search.style.display = "block"
+  }else {
+    document.querySelector(".search").style.display = "none"
+    search.style.display = "none"
+  }
+}
+showSearch()

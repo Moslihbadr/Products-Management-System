@@ -243,32 +243,36 @@ button {
 button:active {
   background-color: #600060;
 }
-/* .search {
+.search {
   display: flex;
-  justify-content: space-between;
+    justify-content: center;
+    align-items: baseline;
 }
-.search button {
-  width: 33%;
-} */
+.search label {
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--textColor);
+}
 select {
-  width: 100%;
-  /* max-width: 300px; */
   height: 35px;
   text-align: center;
-  margin: 0 auto;
   margin-bottom: 15px;
+  padding: 0 10px ;
   border-radius: 20px;
   font-size: 15px;
   font-weight: 700;
+  background: var(--bgColor);
+  color: var(--textColor);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
 }
-  /* @media screen and (max-width:581px) {
-  .search {
-    flex-direction: column;
-  }
-  .search button {
-    width: 100%;
-  }
-} */
+option {
+  font-size: 15px;
+  padding: 5px 7px;
+} 
 /* table style */
 .dataTable{
   width: 100%;

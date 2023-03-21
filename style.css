@@ -138,6 +138,7 @@ a:hover {
 .pageContainer {
   width: 100%;
   padding: 10px 100px;
+  transform: translateY(-30px);
 }
 header {
   margin-bottom: 50px;
@@ -391,6 +392,21 @@ table td {
   display: none;
 }
 
+.alert {
+  text-align: center;
+  transform: translateY(-30px);
+  transition: transform .4s;
+  display: flex;
+  justify-content: center;
+}
+.alert p {
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: 5px 9px;
+  background: #d61c22;
+  border-radius: 5px;
+}
+
 @media screen and (min-width:1200px) {
   .pageContainer {
     padding: 10px 100px;
@@ -412,7 +428,7 @@ table td {
   }
   img {
     width: 150px;
-    margin-left: 0;
+    margin-left: -15px;
     margin-top: -5px;
   }
   .head span {

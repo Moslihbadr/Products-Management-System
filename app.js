@@ -239,19 +239,19 @@ function searchPro() {
   // checks if the ID of each product in productsList is equal to the ID inserted
   if (searchMode === "ID") {
     productsList = productsList.filter(product => {
-      product.ID.toUpperCase() === search.value.toUpperCase()
+      return product.ID.toUpperCase() === search.value.toUpperCase();
     });
   }
   // checks if the Title of each product in productsList is equal to the Title inserted
   else if(searchMode === "Title") {
     productsList = productsList.filter(product => {
-      product.Title.toUpperCase() === search.value.toUpperCase()
+      return product.Title.toUpperCase() === search.value.toUpperCase()
     });
   }
   // checks if the Category of each product in productsList is equal to the Category inserted
   else if(searchMode === "Category") {
     productsList = productsList.filter(product => {
-      product.Category.toUpperCase() === search.value.toUpperCase()
+      return product.Category.toUpperCase() === search.value.toUpperCase()
     });
   }
   display();  // calling the display function to update the table(we're not updating the productsList array!!!)

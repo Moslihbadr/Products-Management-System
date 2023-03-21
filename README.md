@@ -9,7 +9,7 @@ This is a simple Products Management System (PMS) built using JavaScript. The sy
   <li><a href="#section-3">Security</a></li>
   <li><a href="#section-4">Usage</a></li>
   <li><a href="#section-5">Contributing</a></li>
-  <li><a href="#section-6">Acknowledgements 3</a></li>
+  <li><a href="#section-6">Acknowledgements</a></li>
 </ul>
 
 <h3 id="section-1">Getting Started</h3>

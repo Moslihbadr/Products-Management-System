@@ -97,6 +97,11 @@ function create() {
     }
     // saving the products info in local storage
     localStorage.setItem("products",JSON.stringify(productsList));
+    document.querySelector(".alert").style.transform = 'translateY(-30px)'
+  }else {
+    if (window.innerWidth > 560) {
+      document.querySelector(".alert").style.transform = 'translateY(25px)'
+    }
   }
 }
 
@@ -146,12 +151,14 @@ display()
 // click event of the create button
 createBtn.addEventListener("click",()=>{
   create();
-  clear();
   display();  // update the table
   setTotalPro();  // update the total
   showDeleteAll()
   showSearch()
   createBtn.innerText = "create"
+  if (title.value !== "" && total.innerText !== "") {
+    clear();
+  }  
 })
 
 
@@ -177,7 +184,7 @@ function deletePro(i) {
   productsList.splice(i,1);
   // localStorage.setItem("products",JSON.stringify(productsList));
   display();  // update the table
-  setTotalPro();    // update the total
+  setTotalPro();
   showDeleteAll()
   showSearch()
 }
@@ -215,7 +222,7 @@ function update(i) {
   total.innerText = productsList[i].Total;
   count.value = productsList[i].Count;
   category.value = productsList[i].Category;
-  createBtn.innerText = "update";
+  createBtn.innerText = "save";
   title.focus();
   // checks if the ID of each product in productsList is not equal to the ID of the clicked product
   productsList = productsList.filter(product => {
@@ -229,22 +236,32 @@ function update(i) {
 // serch function
 function searchPro() {
   let searchMode = document.getElementById('searchBy').value;
+  // checks if the ID of each product in productsList is equal to the ID inserted
   if (searchMode === "ID") {
-    productsList = productsList.filter(product => product.ID.toUpperCase() === search.value.toUpperCase());
+    productsList = productsList.filter(product => {
+      product.ID.toUpperCase() === search.value.toUpperCase()
+    });
   }
+  // checks if the Title of each product in productsList is equal to the Title inserted
   else if(searchMode === "Title") {
-    productsList = productsList.filter(product => product.Title.toUpperCase() === search.value.toUpperCase());
-  }else if(searchMode === "Category") {
-    productsList = productsList.filter(product => product.Category.toUpperCase() === search.value.toUpperCase());
+    productsList = productsList.filter(product => {
+      product.Title.toUpperCase() === search.value.toUpperCase()
+    });
   }
-  display();
+  // checks if the Category of each product in productsList is equal to the Category inserted
+  else if(searchMode === "Category") {
+    productsList = productsList.filter(product => {
+      product.Category.toUpperCase() === search.value.toUpperCase()
+    });
+  }
+  display();  // calling the display function to update the table(we're not updating the productsList array!!!)
 }
 
 // enter event for search input
 search.addEventListener("keydown", (event) => {
   // check if the "Enter" key was pressed
   if (event.key === "Enter") {
-    searchPro()
+    searchPro();
   }
 });
 
@@ -259,3 +276,39 @@ function showSearch() {
   }
 }
 showSearch()
+
+
+
+
+
+
+
+
+
+
+// // Assuming you have an array of objects named `data`
+// const data = [
+//   { name: 'John', age: 25, email: 'john@example.com' },
+//   { name: 'Jane', age: 30, email: 'jane@example.com' },
+//   { name: 'Bob', age: 40, email: 'bob@example.com' },
+// ];
+
+// // Convert the data array to a CSV string
+// const csvString = 'data:text/csv;charset=utf-8,' + 
+//                   data.map(item => `${item.name},${item.age},${item.email}`).join('\n');
+
+// // Create a Blob object from the CSV string
+// const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8' });
+
+// // Create a download link for the Blob object
+// const link = document.createElement('a');
+// link.href = URL.createObjectURL(blob);
+// link.download = 'data.csv';
+// document.body.appendChild(link);
+
+// // Trigger the download link
+// link.click();
+
+// // Clean up the URL object after the download has started
+// URL.revokeObjectURL(link.href);
+// document.body.removeChild(link);

@@ -42,7 +42,9 @@ To delete all products, click on the "Delete All" button . This will remove all 
 To search for products,choose your serch mode (search by id, title or category),then enter a search term in the search input and click the enter in your keybord. The system will return a list of products that match the search term.
 
 <h3 id="section-5">Contributing</h3>
+
 If you would like to contribute to this Products Management System, please submit a pull request with your changes. We welcome contributions of all kinds, including bug fixes, feature additions, and documentation improvements.
 
 <h3 id="section-6">Acknowledgements</h3>
+
 Special thanks to Abderrahman Jamal for his original idea for this project. His guidance have been invaluable in bringing this project to fruition.

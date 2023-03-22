@@ -222,7 +222,7 @@ function update(i) {
   total.innerText = productsList[i].Total;
   count.value = productsList[i].Count;
   category.value = productsList[i].Category;
-  createBtn.innerText = "save";
+  createBtn.innerText = "Save";
   title.focus();
   // checks if the ID of each product in productsList is not equal to the ID of the clicked product
   productsList = productsList.filter(product => {
@@ -234,26 +234,27 @@ function update(i) {
 }
 
 // serch function
+var searchMode = document.getElementById('searchBy');
 function searchPro() {
-  let searchMode = document.getElementById('searchBy').value;
   // checks if the ID of each product in productsList is equal to the ID inserted
-  if (searchMode === "ID") {
+  if (searchMode.value === "ID") {
     productsList = productsList.filter(product => {
       return product.ID.toUpperCase() === search.value.toUpperCase().trim();
     });
   }
   // checks if the Title of each product in productsList is equal to the Title inserted
-  else if(searchMode === "Title") {
+  else if(searchMode.value === "Title") {
     productsList = productsList.filter(product => {
       return product.Title.toUpperCase() === search.value.toUpperCase().trim();
     });
   }
   // checks if the Category of each product in productsList is equal to the Category inserted
-  else if(searchMode === "Category") {
+  else if(searchMode.value === "Category") {
     productsList = productsList.filter(product => {
       return product.Category.toUpperCase() === search.value.toUpperCase().trim();
     });
-  }if(search.value === '') {
+  }
+  if(search.value === '') {
     return productsList;
   }
   display();  // calling the display function to update the table(we're not updating the productsList array!!!)
@@ -264,8 +265,23 @@ search.addEventListener("keydown", (event) => {
   // check if the "Enter" key was pressed
   if (event.key === "Enter") {
     searchPro();
+    setTotalPro();
   }
 });
+
+// setPlaceHolder
+function setPlaceHolder(searchMode) {
+  if (searchMode === "ID") {
+    search.placeholder = "Search By ID"
+  }else if (searchMode === "Title") {
+    search.placeholder = "Search By Title"
+  }else {
+    search.placeholder = "Search By Category"
+  }
+}
+searchMode.addEventListener("click",()=>{
+  setPlaceHolder(searchMode.value)
+})
 
 // function to display the 'search' div
 function showSearch() {

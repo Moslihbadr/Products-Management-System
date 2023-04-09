@@ -304,29 +304,4 @@ showSearch()
 
 
 
-// // Assuming you have an array of objects named `data`
-// const data = [
-//   { name: 'John', age: 25, email: 'john@example.com' },
-//   { name: 'Jane', age: 30, email: 'jane@example.com' },
-//   { name: 'Bob', age: 40, email: 'bob@example.com' },
-// ];
 
-// // Convert the data array to a CSV string
-// const csvString = 'data:text/csv;charset=utf-8,' + 
-//                   data.map(item => `${item.name},${item.age},${item.email}`).join('\n');
-
-// // Create a Blob object from the CSV string
-// const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8' });
-
-// // Create a download link for the Blob object
-// const link = document.createElement('a');
-// link.href = URL.createObjectURL(blob);
-// link.download = 'data.csv';
-// document.body.appendChild(link);
-
-// // Trigger the download link
-// link.click();
-
-// // Clean up the URL object after the download has started
-// URL.revokeObjectURL(link.href);
-// document.body.removeChild(link);
